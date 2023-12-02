@@ -119,5 +119,6 @@ for epoch, batch in tqdm(enumerate(ppo_trainer.dataloader)):
     logger.info(f'ppo/returns/mean: {stats["ppo/returns/mean"]:.04f}')
     logger.info(f'ppo/policy/advantages_mean: {stats["ppo/policy/advantages_mean"]:.04f}')
 
+    # Save every 100 steps
     if epoch % 100 == 0:
         ppo_trainer.save_pretrained("ppo_model" + f"step_{epoch}")

@@ -160,24 +160,6 @@ class DatasetArgs(object):
 
 @dataclass
 class PPOArguments:
-    model_name: str = field(
-        default="gpt_tuned_sft",
-        metadata={
-            "help": "Path to of model id of the model to be tuned"
-        },
-    )
-    reward_model: str = field(
-        default="reward_model",
-        metadata={
-            "help": "Path to or model id of the reward model."
-        },
-    )
-    query_dataset: str = field(
-        default="Anthropic/hh-rlhf",
-        metadata={
-            "help": "Dataset name from HF hub."
-        },
-    )
     learning_rate: float = field(
         default=1e-05,
         metadata={
@@ -218,6 +200,12 @@ class PPOArguments:
         default="kl",
         metadata={
             "help": "KL penalty."
+        },
+    )
+    steps: int = field(
+        default=10000,
+        metadata={
+            "help": "Steps to train the model."
         },
     )
     early_stopping: bool = field(

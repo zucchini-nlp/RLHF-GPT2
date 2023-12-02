@@ -4,7 +4,7 @@
 torchrun --nproc_per_node 3 train_reward_model.py \
     --dataset_name Anthropic/hh-rlhf \
     --max_seq_len 512 \
-    --pretrained_model_name_or_path /archive/turganbay/DPO/reward_model/checkpoint-2400/ \
+    --pretrained_model_name_or_path RaushanTurganbay/reward_model_deberta_large_Anthropic_hh \
     --output_dir reward_model \
     --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 2 \
