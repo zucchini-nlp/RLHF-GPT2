@@ -85,7 +85,7 @@ trainer = Trainer(
     train_dataset=SFTDataset(train_dataset, tokenizer, data_args.max_seq_len),
     eval_dataset=SFTDataset(eval_dataset, tokenizer, data_args.max_seq_len) if training_args.do_eval else None,
     data_collator=collator,
+    tokenizer=tokenizer,
 )
 
 trainer.train()
-trainer.save_model(training_args.output_dir)

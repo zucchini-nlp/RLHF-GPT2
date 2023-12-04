@@ -3,9 +3,9 @@
 torchrun --nproc_per_node 3 train_dpo.py \
     --dataset_name Anthropic/hh-rlhf \
     --max_seq_len 750 \
-    --sft_model gpt_tuned \
+    --sft_model RaushanTurganbay/GPT2_instruct_tuned \
     --output_dir dpo_model \
-    --per_device_train_batch_size 2 \
+    --per_device_train_batch_size 1 \
     --gradient_accumulation_steps 32 \
     --save_strategy "steps" \
     --save_steps 500 \

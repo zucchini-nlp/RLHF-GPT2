@@ -31,3 +31,9 @@ To conduct a normal training on the [Anthropic-hh dataset](https://huggingface.c
 
 Feel free to explore and modify the scripts/config to adapt the fine-tuning process according to your specific requirements.
 
+### Generation
+To generate using the fine-tuned models, use the below command:
+
+```bash
+python generate.py --pretrained_model_name_or_path RaushanTurganbay/GPT2_sft_and_dpo_tuned max_new_tokens 256 {{other generaion_args}}
+```
