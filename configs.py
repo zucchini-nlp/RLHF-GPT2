@@ -232,6 +232,12 @@ class PPOArguments:
             "help": "Score clip."
         },
     )
+    ratio_threshold: float = field(
+        default=15.0,
+        metadata={
+            "help": "Skip mini-batches with high PPO ratios that can cause loss spikes."
+        },
+    )
 
 
 @dataclass

@@ -105,14 +105,17 @@ def build_dataset_PPO(tokenizer_name, params) -> Dataset:
     train_ds, eval_ds = build_dataset_SFT(params)
     
     def tokenize(example):
-        sample["input_ids"] = tokenizer.encode(example["query"])
-        return sample
+        example["input_ids"] = tokenizer.encode(example["prompt"])[-params.max_seq_len:]
+        example["query"] = tokenizer.decode(example["input_ids"])
+        return example
 
     train_ds = train_ds.map(split_prompt_and_responses)
     train_ds = train_ds.map(tokenize, batched=False)
+    train_ds.set_format(type="torch")
     if eval_ds:
         eval_ds = eval_ds.map(split_prompt_and_responses)
         eval_ds = eval_ds.map(tokenize, batched=False)
+        eval_ds.set_format(type="torch")
     return train_ds, eval_ds
     
 
