@@ -5,7 +5,7 @@
 This repository implements a Command Line Interface (CLI) for fine-tuning the [gpt2-medium](https://huggingface.co/gpt2-medium) model using the [trl](https://huggingface.co/docs/trl/index) library. The fine-tuning process supports two training options:
 
 - Reinforcement Learning with Hybrid Fine-Tuning (RLHF) using Proximal Policy Optimization (PPO) with a reward model.
-- RLHF using Deterministic Policy Optimization (DPO) without a reward model.
+- RLHF using Direct Preference Optimization (DPO) without a reward model.
 
 The implementation allows for a single iteration of the following stages:
 1. SFT (Supervised Fine-Tuning)
